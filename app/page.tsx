@@ -1,8 +1,15 @@
 // import Image from "next/image";
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import ThemeSwitch from "./ThemeSwitcher";
+import "../app/styles/styles.css";
 import "hamburgers/dist/hamburgers.css";
+import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import nivea from "../public/images/nivea.png";
+import Values from "./components/values";
+import Services from "./components/services";
 
 export default function Home() {
   const divRefs = useRef<HTMLDivElement[]>([]);
@@ -11,6 +18,14 @@ export default function Home() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  AOS.init();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const AOS = require("aos");
+      AOS.init();
+    }
+  }, []);
 
   const scrollToDiv = (
     index: number,
@@ -22,11 +37,10 @@ export default function Home() {
       divRefs.current[index].scrollIntoView({ behavior: "smooth" });
     }
   };
-  console.log("toggle", isOpen);
 
   return (
     <>
-      <nav className="flex sticky top-0 items-center justify-between h-16 bg-gray-400 text-white px-4">
+      <nav className="z-20 flex sticky top-0 items-center justify-between h-16 bg-gray-400 text-white px-24">
         <div className="flex items-center">
           <span className="text-xl font-bold">M.S Traders.</span>
         </div>
@@ -97,21 +111,149 @@ export default function Home() {
 
       <div
         ref={(ref) => (divRefs.current[0] = ref!)}
-        className="bg-red-400 min-h-screen"
-      ></div>
+        className="bg-white min-h-screen z-20 px-24"
+      >
+        <div className="flex flex-row text-black py-10">
+          <div className="flex flex-col">
+            <p
+              data-aos="fade-right"
+              className="font-extralight text-5xl mt-5"
+              data-aos-duration="600"
+              data-aos-easing="ease-in-out"
+              data-aos-once="false"
+              data-aos-anchor-placement="top-center"
+            >
+              Your Trusted Partner for Wholesale Beauty Products in Pakistan
+            </p>
+            <span>Since 1985</span>
+            <button className="bg-red-200 p-3 cursor-pointer w-fit rounded-md mt-10">
+              Get a quote
+            </button>
+          </div>
+          <Image
+            src="/images/image2.png"
+            width={500}
+            height={700}
+            alt="warehouse"
+          />
+        </div>
+      </div>
       <div
         ref={(ref) => (divRefs.current[1] = ref!)}
-        className="bg-red-600 min-h-screen"
-      ></div>
+        className="bg-white min-h-screen px-24"
+      >
+        <div className="flex flex-col text-black items-center justify-center">
+          <h1 className="text-4xl">Our Partner Brands</h1>
+
+          <p className="text-center my-10">
+            Discover a wide range of cosmetic and toiletries products from top
+            brands at our retail store. We carry multiple brands, offering you a
+            selection of high-quality products to meet your unique needs.
+          </p>
+
+          <div className="w-80 h-[21rem] bg-slate-300">
+            <div className="grid grid-cols-3 grid-rows-4 gap-x-0 gap-y-4">
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+              <div className="square">
+                <Image
+                  src={nivea}
+                  alt="dsw"
+                  width={100}
+                  height={100}
+                  className="bg-transparent"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         ref={(ref) => (divRefs.current[2] = ref!)}
-        className="bg-green-600 min-h-screen"
-      ></div>
+        className="bg-white text-black min-h-screen px-24"
+      >
+        <Services />
+      </div>
+
       <div
         ref={(ref) => (divRefs.current[3] = ref!)}
-        className="bg-yellow-600 min-h-screen"
-      ></div>
+        className="bg-white min-h-screen px-24 text-black"
+      >
+        <Values />
+      </div>
+
       <div
+        id="our-story"
         ref={(ref) => (divRefs.current[4] = ref!)}
         className="bg-blue-600 min-h-screen"
       ></div>

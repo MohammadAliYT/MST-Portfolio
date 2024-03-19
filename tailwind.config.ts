@@ -10,6 +10,9 @@ const config: Config = {
     fontFamily: {
       bebasBold: ["Bebas Neue", "sans-serif"],
       bebasRegular: ["Bebas Neue Regular", "sans-serif"],
+      moldyen: ["Moldyen", "roman"],
+      OggRoman: ["OggRoman", "serif"],
+      ogg: ["ogg-roman", "roman"],
     },
     extend: {},
   },

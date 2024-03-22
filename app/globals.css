@@ -28,10 +28,9 @@ body {
   font-family: Titillium-Web, sans-serif;
 }
 
-.titillium-web-extralight {
+.font-titillium-web-extralight {
   font-family: "Titillium Web", sans-serif;
-  font-weight: 200;
-  font-style: normal;
+  src: url("../public/fonts/TitilliumWeb-ExtraLight.ttf");
 }
 
 .titillium-web-light {
@@ -92,4 +91,18 @@ body {
   font-family: "Titillium Web", sans-serif;
   font-weight: 700;
   font-style: italic;
+}
+
+@media (min-width: 1024px) {
+  body.scrolled .header_container {
+    padding: 10px 0;
+  }
+
+  body.scrolled .header_logo svg {
+    height: 38px;
+  }
+}
+
+.animated-shake {
+  animation: shake 0.5s ease-in-out infinite;
 }
